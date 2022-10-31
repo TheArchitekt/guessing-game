@@ -2,4 +2,4 @@
 
 # Put your code here
 
-print("hi")
+print("Welcome to our game!")
