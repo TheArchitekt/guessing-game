@@ -5,19 +5,21 @@ import random
 print("Welcome to our game!")
 name = input("What's your name? ")
 number = random.randrange(1,100)
-guess = int(input("What's your guess? "))
+#guess = int(input("What's your guess? "))
 
-try:
-    guess = int(input("What's your guess? "))
-except ValueError:
-    print("Nice try, not a valid number.")
-
-if guess < 1 or guess > 100:
-    raise Exception("Nice try, guess out of range.")
 
 count = 1
-
+def get_guess():
+    guess = None
+    while guess == None:
+        try:
+            guess = int(input("What's your guess? "))
+        except ValueError:
+            print("Nice try, not a valid number.")
+    return guess
+guess = get_guess()
 while guess != number:
+
     count += 1
     if guess < number:
         print("too low")
