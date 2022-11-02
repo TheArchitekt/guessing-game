@@ -5,28 +5,31 @@ import random
 print("Welcome to our game!")
 name = input("What's your name? ")
 number = random.randrange(1,100)
-#guess = int(input("What's your guess? "))
-
-
 count = 1
+
 def get_guess():
+    """A function used to ensure the guess is an integer"""
+
     guess = None
+
     while guess == None:
         try:
             guess = int(input("What's your guess? "))
         except ValueError:
             print("Nice try, not a valid number.")
     return guess
-guess = get_guess()
-while guess != number:
 
+guess = get_guess()
+
+while guess != number:
     count += 1
+
     if guess < number:
-        print("too low")
+        print("Too low")
         guess = int(input("What's your guess? "))
     elif guess  > number:
-        print("too high")
+        print("Too high")
         guess = int(input("What's your guess? "))
 
-print("you got it")
+print("You got it!")
 print(f"{name}, it took you {count} tries.")
